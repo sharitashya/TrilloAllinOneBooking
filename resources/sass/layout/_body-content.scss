@@ -1,0 +1,172 @@
+.body-content {
+    display: flex;
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+        margin: 0;
+    }
+}
+
+.hotel-view {
+    background-color: $color-white;
+    flex: 1;
+}
+
+.overview {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $color-grey-light-1;
+    &__stars {
+        //flex: 1;
+        margin-right: auto; //very powerful  
+        display: flex;
+    }
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: $color-primary;
+    }
+    &__icon-location {
+        margin-right: .5rem;
+    }
+    &__location {
+        font-size: 1.2rem;
+        display: flex;
+        vertical-align: center;
+    }
+    &__rating {
+        background-color: $color-primary;
+        margin-left: 3rem;
+        color: $color-white;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 2.25rem;
+        &-average {
+            font-size: 2.25rem;
+            font-weight: 300;
+            margin-bottom: -3px;
+            @media only screen and (max-width: $bp-small) {
+                font-size: 1.8rem;
+            }
+        }
+        &-count {
+            font-size: .8rem;
+            text-transform: uppercase;
+            @media only screen and (max-width: $bp-small) {
+                font-size: .5rem;
+            }
+        }
+    }
+}
+
+.detail {
+    display: flex;
+    padding: 4.5rem;
+    background-color: $color-grey-light-1;
+    border-bottom: 1px solid $color-grey-light-2;
+    font-size: 1.4rem;
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+    }
+}
+
+.description {
+    background-color: $color-white;
+    box-shadow: $shadow-light;
+    flex: 0 0 60%; //flex grow shrink and flex basis
+    margin-right: 4.5rem;
+    padding: 3rem;
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+}
+
+.recommend {
+    color: $color-grey-dark-3;
+    display: flex;
+    align-items: center;
+    &__count {
+        margin-right: auto;
+    }
+    &__friends {
+        display: flex;
+    }
+    &__photo {
+        box-sizing: content-box;
+        height: 4rem;
+        widows: 4rem;
+        border-radius: 50%;
+        border: 3px solid $color-white;
+        &:not(:last-child) {
+            margin-right: -2rem;
+        }
+    }
+}
+
+//Call to action
+.cta {
+    padding: 3.5rem 0;
+    text-align: center;
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
+    &__book-now {
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.btn {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    color: $color-white;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    &>* {
+        //span is an inline element, to apply padding to it make it block element.
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all .2s;
+    }
+    &__visible {
+        padding: 2rem 7.5rem;
+    }
+    &__invisible {
+        position: absolute;
+        left: 0;
+        top: -100%;
+        padding: 2rem;
+    }
+    &:hover {
+        background-image: linear-gradient(to left, $color-primary-light, $color-primary-dark)
+    }
+    &:hover &__visible {
+        transform: translateY(100%);
+    }
+    &:hover &__invisible {
+        top: 0;
+    }
+    &:focus {
+        outline: none;
+        animation: Pulsate 1s infinite;
+    }
+}

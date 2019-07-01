@@ -1,0 +1,7 @@
+.gallery {
+    display: flex;
+    &__photo {
+        width: 100%; //always use percent to keep image responsive
+        display: block; //image should always be a block or an inline block to avoid white space at bottom of an image.
+    }
+}
